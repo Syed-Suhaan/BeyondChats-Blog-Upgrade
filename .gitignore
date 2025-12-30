@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment variables
+.env
+.env.*
+*.env
+*.backup
+**/.env
+**/.env.*
+**/*.env
+
+# Build outputs
+dist/
+build/
+**/dist/
+**/build/
+
+# System
+.DS_Store
+.vscode/
+coverage/
