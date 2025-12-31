@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prose svg {
+    display: none !important;
+}
+
+.prose p {
+    margin-bottom: 1.5em !important;
+    line-height: 1.75 !important;
+}
+
+.prose div {
+    margin-bottom: 1em;
+}
+
+.prose img {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.prose img[width="16"],
+.prose img[width="20"],
+.prose img[width="24"],
+.prose img[width="32"],
+.prose .social-icon img {
+    filter: invert(1) grayscale(1);
+    opacity: 0.7;
+}
+
+.prose ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.prose ol {
+    list-style-type: decimal;
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.prose li {
+    margin-bottom: 0.5em;
+}
