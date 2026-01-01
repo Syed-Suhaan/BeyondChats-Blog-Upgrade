@@ -5,8 +5,10 @@ const articleRoutes = require('./modules/articles/article.routes');
 require('./modules/articles/article.model'); // Register model
 
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
+app.use(cors()); // Enable CORS for all origins
 app.use(express.json());
 app.use('/api/articles', articleRoutes);
 

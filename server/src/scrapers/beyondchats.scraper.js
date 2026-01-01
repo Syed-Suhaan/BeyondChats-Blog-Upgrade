@@ -26,7 +26,7 @@ async function scrapeArticleContent(url) {
 }
 
 async function scrapeOldestArticles() {
-    await connectDB();
+    // await connectDB(); // Use existing connection if imported
     logger.info('Starting scrape job...');
 
     const articlesToScrape = [];
@@ -88,7 +88,14 @@ async function scrapeOldestArticles() {
     }
 
     logger.info('Scraping completed.');
-    await sequelize.close(); // Close DB connection so script exits
+    // Only close if running as standalone script
+    if (require.main === module) {
+        await sequelize.close();
+    }
 }
 
-scrapeOldestArticles();
+if (require.main === module) {
+    scrapeOldestArticles();
+}
+
+module.exports = { scrapeOldestArticles };

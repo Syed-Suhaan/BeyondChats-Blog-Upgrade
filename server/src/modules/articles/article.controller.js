@@ -1,6 +1,17 @@
 const articleService = require('./article.service');
 const upgradeEngine = require('../../upgrade-engine/index');
+const scraper = require('../../scrapers/beyondchats.scraper');
 const logger = require('../../utils/logger');
+
+const seedArticles = async (req, res) => {
+    try {
+        await scraper.scrapeOldestArticles();
+        res.json({ message: 'Seeding completed successfully.' });
+    } catch (error) {
+        logger.error('Error seeding articles', error);
+        res.status(500).json({ message: 'Seeding failed' });
+    }
+};
 
 const getArticles = async (req, res) => {
     try {
@@ -70,4 +81,5 @@ module.exports = {
     getArticle,
     getArticleComparison,
     enhanceArticle,
+    seedArticles,
 };
