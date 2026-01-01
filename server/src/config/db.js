@@ -10,7 +10,10 @@ if (!process.env.DATABASE_URL) {
   process.exit(1);
 }
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const rawDbUrl = process.env.DATABASE_URL;
+const dbUrl = rawDbUrl.replace(/^['"]|['"]$/g, '');
+
+const sequelize = new Sequelize(dbUrl, {
   dialect: 'postgres',
   logging: false,
   dialectOptions: {
